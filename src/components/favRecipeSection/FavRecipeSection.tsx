@@ -5,7 +5,7 @@ import { Tables } from "../../utils/database";
 
 /* type Recipe = Tables<'recipes'> */
 const FavRecipeSection = () => {
-    const [favRecipes, favSetRecipes] = useState<Tables<'recipes'>[] | null>([]);
+    const [favRecipes, setFavRecipes] = useState<Tables<'recipes'>[] | null>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -20,12 +20,12 @@ const FavRecipeSection = () => {
                 console.log(data);
 
                 if (error) {
-                    console.error("Fetching failed", error);      
+                    console.error("Fetching favorite recipes failed", error);      
                 } else {
-                    favSetRecipes(data || []);
+                    setFavRecipes(data || []);
                 }
             } catch (error) {
-                console.error("Unexpected error", error);
+                console.error(error);
             } finally {
                 setLoading(false);
             }

@@ -44,7 +44,7 @@ const RecipePage = () => {
             <section className="newsection">
                 <h3>Neueste Rezepte</h3>
                 {loading ? (
-                    <p>Recipes are loading... </p>
+                    <p>Recipes are loading ... </p>
                 ) : (
                         newRecipes?.map((newRecipe)=> (
                             <NewRecipeCard key={newRecipe.id} newRecipe={newRecipe}/>
