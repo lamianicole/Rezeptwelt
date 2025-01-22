@@ -66,8 +66,8 @@ export const LoginPage = () => {
                     ref={passwordRef} 
                 />
                 <div className="flex space-x-4">
-                <button className="mr-6">Log In</button>
-                <button type="button" onClick={handleRegister}>
+                <button className="mr-6 p-2 bg-purple-500 rounded-lg">Log In</button>
+                <button className="mr-6 p-2 bg-orange-500 rounded-lg" type="button" onClick={handleRegister}>
                     Register
                 </button>
                 </div>
