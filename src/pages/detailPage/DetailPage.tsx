@@ -70,7 +70,6 @@ interface OutletContext {
                     <>
                      
                       <section className="pl-10">
-                        <h2>Detailpage</h2>
                         <h6 className="text-lg font-semibold pb-2">Zutaten</h6>
                         <ul>
                           {ingredients?.map((ingredient, index) => (

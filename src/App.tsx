@@ -7,7 +7,7 @@ import AboutUs from './pages/aboutUs/AboutUs';
 import DetailPage from './pages/detailPage/DetailPage';
 import LoginPage from './pages/loginPage/LoginPage';
 import { UserProvider } from './UserContext'
-// import NotFound from './pages/notFound/NotFound';
+import UserDashboard from './pages/userDashboard/UserDashboard';
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
         <Route path="detailPage/:recipe_id" element={<DetailPage  />} />
         <Route path="aboutUs" element={<AboutUs />} />
         <Route path="login" element={<LoginPage />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="userDashboard" element={<UserDashboard />} />
       </Route>
       </>
     )
