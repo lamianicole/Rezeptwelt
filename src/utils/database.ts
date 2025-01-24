@@ -65,6 +65,33 @@ export type Database = {
           },
         ]
       }
+      profiles: {
+        Row: {
+          email: string | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          password: string | null
+          user_name: string | null
+        }
+        Insert: {
+          email?: string | null
+          first_name?: string | null
+          id: string
+          last_name?: string | null
+          password?: string | null
+          user_name?: string | null
+        }
+        Update: {
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          password?: string | null
+          user_name?: string | null
+        }
+        Relationships: []
+      }
       recipes: {
         Row: {
           category_id: string

@@ -83,7 +83,7 @@ interface OutletContext {
                         <h6 className="text-lg font-semibold pb-2">
                           Zusätzliche Informationen
                         </h6>
-                        <p>Servings: {recipe?.servings}</p>
+                        <p>Portionen: {recipe?.servings}</p>
                       </section>
                     </>
                   )}

@@ -8,6 +8,7 @@ import DetailPage from './pages/detailPage/DetailPage';
 import LoginPage from './pages/loginPage/LoginPage';
 import { UserProvider } from './UserContext'
 import UserDashboard from './pages/userDashboard/UserDashboard';
+import SignUp from './pages/signUp/SignUp'
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
         <Route path="detailPage/:recipe_id" element={<DetailPage  />} />
         <Route path="aboutUs" element={<AboutUs />} />
         <Route path="login" element={<LoginPage />} />
-        <Route path="userDashboard" element={<UserDashboard />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="userdashboard" element={<UserDashboard />} />
       </Route>
       </>
     )

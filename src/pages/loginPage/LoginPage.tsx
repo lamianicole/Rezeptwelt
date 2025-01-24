@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { supabase } from "../../utils/setupSupabase";
 import { useUserContext } from "../../UserContext";
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+
 
 export const LoginPage = () => {
     const usernameRef = useRef<HTMLInputElement>(null!);
@@ -9,8 +11,11 @@ export const LoginPage = () => {
 
     // für Nachricht an user nach Login und Registrierung
     const [message, setMessage] = useState<string | null>(null);
+    const [isError, setIsError] = useState<boolean>(false);
 
     const { setUser } = useUserContext();
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -27,25 +32,16 @@ export const LoginPage = () => {
         if (result.data.user) {
             setUser(result.data.user);
             setMessage("Du bist eingeloggt.");
+            setIsError(false);
+            navigate('/userdashboard');
         } else {
             // falls es einen Fehler gibt, wird dieser geloggt
             console.error(result.error);
             setMessage("Login fehlgeschlagen.");
+            setIsError(true);
         }
     };
 
-    const handleRegister = async () => {
-        const result = await supabase.auth.signUp({
-            email: usernameRef.current.value,
-            password: passwordRef.current.value,
-        });
-        console.log(result);
-    if (result.data.user) { 
-        setMessage("Du bist registriert."); 
-    } else { 
-        setMessage("Registrierung fehlgeschlagen."); 
-    } 
-};
 
     return ( 
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -67,12 +63,10 @@ export const LoginPage = () => {
                 />
                 <div className="flex space-x-4">
                 <button className="mr-6 p-2 bg-purple-500 rounded-lg">Log In</button>
-                <button className="mr-6 p-2 bg-orange-500 rounded-lg" type="button" onClick={handleRegister}>
-                    Register
-                </button>
+                <Link to={"/signup"}>Du hast noch kein Konto? Hier geht's zur Registrierung</Link>
                 </div>
             </form>
-            {message && <p>{message}</p>}
+            {message && <p className={`${isError? "text-red-700" : "text-black-500"}`}>{message}</p>}
         </div>
         </div>
     );
