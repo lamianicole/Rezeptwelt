@@ -43,7 +43,11 @@ const SignUp = () => {
     if (result.data.user) { 
             setMessage("Du bist registriert."); 
             setIsError(false);
-            navigate('/userdashboard');
+
+            // Navigiere nach 4 Sekunden zum Dashboard
+            setTimeout(() => {
+                navigate('/userdashboard');
+            }, 4000);
         } else { 
             setMessage("Registrierung fehlgeschlagen."); 
             setIsError(true);
@@ -82,6 +86,7 @@ const SignUp = () => {
             {/* button neuer User zum Registrieren */}
             <button type="submit">Register</button>
         </form>
+        {message && <p className={`${isError? "text-red-700" : "text-green-500"}`}>{message}</p>}
         </div>
     );
 }

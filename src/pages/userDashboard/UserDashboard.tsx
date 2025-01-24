@@ -14,7 +14,7 @@ const UserDashboard = () => {
                 id="name"
                 type="text"
                 name="name"
-                placeholder="Enter sneaker name"
+                placeholder="Enter recipe name"
             />
         </div>
         <div className="mb-4">

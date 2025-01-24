@@ -68,18 +68,17 @@ interface OutletContext {
                     <p>Loading...</p>
                   ) : (
                     <>
-                     
                       <section className="pl-10">
                         <h6 className="text-lg font-semibold pb-2">Zutaten</h6>
-                        <ul>
+                        <ul className="pl-4 pb-6">
                           {ingredients?.map((ingredient, index) => (
-                            <li key={index}>
+                            <li className="list-disc" key={index}>
                               {ingredient.quantity} {ingredient.unit} {ingredient.name}
                             </li>
                           ))}
                         </ul>
                         <h6 className="text-lg font-semibold pb-2">Zubereitung</h6>
-                        <p>{recipe?.instructions}</p>
+                        <p className="pb-4">{recipe?.instructions}</p>
                         <h6 className="text-lg font-semibold pb-2">
                           Zusätzliche Informationen
                         </h6>

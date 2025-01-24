@@ -33,7 +33,12 @@ export const LoginPage = () => {
             setUser(result.data.user);
             setMessage("Du bist eingeloggt.");
             setIsError(false);
+
+            // Navigiere bei erfolgeichem Login nach 4 Sekunden zum Dashboard/Userprofil
+            setTimeout(() => {
             navigate('/userdashboard');
+        }, 4000);
+
         } else {
             // falls es einen Fehler gibt, wird dieser geloggt
             console.error(result.error);
@@ -66,7 +71,7 @@ export const LoginPage = () => {
                 <Link to={"/signup"}>Du hast noch kein Konto? Hier geht's zur Registrierung</Link>
                 </div>
             </form>
-            {message && <p className={`${isError? "text-red-700" : "text-black-500"}`}>{message}</p>}
+            {message && <p className={`${isError? "text-red-700" : "text-green-500"}`}>{message}</p>}
         </div>
         </div>
     );
