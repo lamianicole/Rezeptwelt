@@ -68,7 +68,7 @@ import { supabase } from "../../utils/setupSupabase";
 
     return ( 
         <>
-        <h1 className="text-4xl text-center">Willkommen auf deinem Dashboard</h1>
+        <h1 className="headline font-medium text-[2rem] pb-6 text-center">🥙 👩🏻‍🍳 Willkommen auf deinem Dashboard 👨🏼‍🍳 🥗</h1>
         <section className="h-screen flex justify-center items-center">
             <div className="max-w-md mx-auto mt-8 p-4 bg-gray-100 border border-gray-300 rounded-lg">
                 <h2 className="text-2xl font-bold text-gray-900">Dein Profil</h2>

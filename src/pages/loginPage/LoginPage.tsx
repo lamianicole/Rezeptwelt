@@ -37,7 +37,7 @@ export const LoginPage = () => {
             // Navigiere bei erfolgeichem Login nach 4 Sekunden zum Dashboard/Userprofil
             setTimeout(() => {
             navigate('/userdashboard');
-        }, 4000);
+        }, 2000);
 
         } else {
             // falls es einen Fehler gibt, wird dieser geloggt
