@@ -54,7 +54,7 @@ export const LoginPage = () => {
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                 <input
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="username"
+                    placeholder="E-Mail-Adresse"
                     type="text"
                     name="username"
                     ref={usernameRef} 

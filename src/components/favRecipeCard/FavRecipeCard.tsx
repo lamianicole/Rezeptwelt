@@ -7,20 +7,20 @@ interface IFavRecipeCardProps {
 
 const FavRecipeCard:React.FC<IFavRecipeCardProps> = ({favRecipe}) => {
     return ( 
-        <article className="border-2 border-slate-100 rounded-xl w-72 mb-6">
+            <article className="bg-slate-100 rounded-xl shadow-lg overflow-hidden w-72 mx-auto">
             {/* ternary operator, wenn img nicht angezeigt wird */}
                 {!favRecipe.image_url || favRecipe.image_url == undefined ? 
                 (<>
-                <p>image not found</p>
+                <p>Image not found</p>
                 </>)
                 :(<>              
-                <img className="h-[220px] w-full rounded-t-xl" src={`${favRecipe?.image_url}`} alt={favRecipe.name} />
+                <img className="h-[220px] w-full object-cover" src={`${favRecipe?.image_url}`} alt={favRecipe.name} />
                 </>)
             }
-            <div className="p-8 text-center bg-slate-400 rounded-bl-xl rounded-br-xl">
-                <h3 className="text-xl font-bold pb-2">{favRecipe.name}</h3>
+            <div className="p-8 text-center bg-slate-100">
+                <h3 className="text-xl font-semibold pb-2">{favRecipe.name}</h3>
                 <p className="pb-4 text-xs text-wrap">{favRecipe.description}</p>
-                <Link className="btn-yell bg-yellow-300 py-2 px-5 rounded-2xl" to={`/detailPage/${favRecipe.id}`}>Zum Rezept</Link>
+                <Link className="btn-yellow" to={`/detailPage/${favRecipe.id}`}>Zum Rezept</Link>
             </div>
         </article>
     );

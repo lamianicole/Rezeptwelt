@@ -13,7 +13,7 @@ const backgroundImage = heroProps?.image_url || '/BannerFood.png';
 return (
     <section className="hero py-20 text-center mb-8"
         style={{ backgroundImage: `url(${backgroundImage})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
-        <h3 className="px-24 text-white text-xl font-semibold">
+        <h3 className="px-24 text-white text-3xl font-small">
             {heroProps?.name
             ? `${heroProps.name}`
             :(<>Lassen Sie sich inspirieren, kochen Sie mit<br/> Leidenschaft und erleben Sie unvergessliche<br/> Momente bei Tisch.</>)}
