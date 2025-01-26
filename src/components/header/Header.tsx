@@ -13,10 +13,15 @@ const Header:React.FC<HeaderProps> = ({heroProps}) => {
                     <img src="/RezeptweltLogo.svg" alt="Logo" />
                 </Link>
                 <nav className="flex gap-4 font-semibold">
+                <div className="flex gap-4">
                     <Link to={'/'}>Home</Link>
                     <Link to={'/recipes'}>Rezepte</Link>
                     <Link to={'/aboutUs'}>Über uns</Link>
-                    <Link className="pl-16" to={'/login'}>Login</Link>
+                </div>
+                <div className="flex gap-4 pl-16">
+                    <Link to={'/signup'}>Registrieren</Link>
+                    <Link to={'/login'}>Anmelden</Link>
+                </div>
                 </nav>
             </div>   
         </header>

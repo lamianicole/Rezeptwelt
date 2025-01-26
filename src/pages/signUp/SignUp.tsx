@@ -55,40 +55,90 @@ const SignUp = () => {
     }
 
     return ( 
-        <div>
-        {/* function zum Registrieren */}
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="user_name">Username
-                </label>
-                <input type="text" name="user_name"/>
+//         <div>
+//         {/* function zum Registrieren */}
+//         <form onSubmit={handleSubmit}>
+//             <div>
+//                 <label htmlFor="user_name">Username
+//                 </label>
+//                 <input type="text" name="user_name"/>
+//             </div>
+//             <div>
+//                 <label htmlFor="first_name">Vorname
+//                 </label>
+//                 <input type="text" name="first_name"/>
+//             </div>
+//             <div>
+//                 <label htmlFor="last_name">Nachname
+//                 </label>
+//                 <input type="text" name="last_name"/>
+//             </div>
+//             <div>
+//                 <label htmlFor="email">E-Mail
+//                 </label>
+//                 <input type="email" name="email"/>
+//             </div>
+//             <div>
+//                 <label htmlFor="password">Passwort
+//                 </label>
+//                 <input type="password" name="password"/>
+//             </div>
+//             {/* button neuer User zum Registrieren */}
+//             <button type="submit">Register</button>
+//         </form>
+//         {message && <p className={`${isError? "text-red-700" : "text-green-500"}`}>{message}</p>}
+//         </div>
+//     );
+// }
+<div className="flex items-center justify-center min-h-screen pb-32">
+            <div className="bg-slate-100 rounded-xl shadow-lg overflow-hidden w-72 mx-auto p-8">
+                <h3 className="text-xl font-semibold pb-2 text-center">Kundenkonto erstellen</h3>
+                <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+                    <div>
+                        <label className="block text-gray-700" htmlFor="user_name">Username</label>
+                        <input className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                            type="text" 
+                            name="user_name"
+                            placeholder="Username"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-gray-700" htmlFor="first_name">Vorname</label>
+                        <input className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                            type="text" 
+                            name="first_name"
+                            placeholder="Vorname"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-gray-700" htmlFor="last_name">Nachname</label>
+                        <input className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                            type="text" 
+                            name="last_name"
+                            placeholder="Nachname"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-gray-700" htmlFor="email">E-Mail</label>
+                        <input className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                            type="email" 
+                            name="email"
+                            placeholder="email@mail.com"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-gray-700" htmlFor="password">Passwort</label>
+                        <input className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                            type="password" 
+                            name="password"
+                            placeholder="********"
+                        />
+                    </div>
+                    <button type="submit" className="p-2 bg-yellow-400 rounded-lg w-full text-center">Registrieren</button>
+                </form>
+                {message && <p className={`${isError ? "text-red-700" : "text-green-500"}`}>{message}</p>}
             </div>
-            <div>
-                <label htmlFor="first_name">Vorname
-                </label>
-                <input type="text" name="first_name"/>
-            </div>
-            <div>
-                <label htmlFor="last_name">Nachname
-                </label>
-                <input type="text" name="last_name"/>
-            </div>
-            <div>
-                <label htmlFor="email">E-Mail
-                </label>
-                <input type="email" name="email"/>
-            </div>
-            <div>
-                <label htmlFor="password">Passwort
-                </label>
-                <input type="password" name="password"/>
-            </div>
-            {/* button neuer User zum Registrieren */}
-            <button type="submit">Register</button>
-        </form>
-        {message && <p className={`${isError? "text-red-700" : "text-green-500"}`}>{message}</p>}
         </div>
     );
 }
-
 export default SignUp;

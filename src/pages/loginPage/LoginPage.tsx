@@ -47,10 +47,10 @@ export const LoginPage = () => {
         }
     };
 
-
-    return ( 
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="p-8 bg-white shadow-lg rounded-lg">
+return ( 
+    <div className="flex items-center justify-center min-h-screen pb-64">
+        <div className="bg-slate-100 rounded-xl shadow-lg overflow-hidden w-72 mx-auto p-8">
+            <h3 className="text-xl font-semibold pb-2 text-center">Mein Konto</h3>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                 <input
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -61,20 +61,22 @@ export const LoginPage = () => {
                 />
                 <input
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="password"
+                    placeholder="Passwort"
                     type="password"
                     name="password"
                     ref={passwordRef} 
                 />
-                <div className="flex space-x-4">
-                <button className="mr-6 p-2 bg-purple-500 rounded-lg">Log In</button>
-                <Link to={"/signup"}>Du hast noch kein Konto? Hier geht's zur Registrierung</Link>
+                <div className="flex flex-col items-center">
+                    <button className="p-2 bg-yellow-400 rounded-lg w-full text-center">Anmelden</button>
+                    <p className="pt-4 text-black">
+                        Du hast noch kein Konto? Hier geht's zur <Link className="text-blue-500" to={"/signup"}>Registrierung</Link>
+                    </p>
                 </div>
             </form>
             {message && <p className={`${isError? "text-red-700" : "text-green-500"}`}>{message}</p>}
         </div>
-        </div>
-    );
-};
+    </div>
+);
+}
 
 export default LoginPage;
