@@ -9,7 +9,9 @@ const Header:React.FC<HeaderProps> = ({heroProps}) => {
         <>
         <header className="bg-yellow-300 pt-4">
             <div className="bg-white flex items-end justify-between py-3 pl-28 pr-10">
-                <img src="/RezeptweltLogo.svg" alt="Logo" />
+                <Link to="/">
+                    <img src="/RezeptweltLogo.svg" alt="Logo" />
+                </Link>
                 <nav className="flex gap-4 font-semibold">
                     <Link to={'/'}>Home</Link>
                     <Link to={'/recipes'}>Rezepte</Link>
