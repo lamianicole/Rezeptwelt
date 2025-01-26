@@ -67,7 +67,7 @@ return (
                     ref={passwordRef} 
                 />
                 <div className="flex flex-col items-center">
-                    <button className="p-2 bg-yellow-400 rounded-lg w-full text-center">Anmelden</button>
+                    <button className="p-2 bg-yellow-400 rounded-lg w-full text-center">Log in</button>
                     <p className="pt-4 text-black">
                         Du hast noch kein Konto? Hier geht's zur <Link className="text-blue-500" to={"/signup"}>Registrierung</Link>
                     </p>

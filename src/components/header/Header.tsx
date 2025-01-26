@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 import HeroA from "../heroA/HeroA";
 import { Tables } from "../../utils/database";
+import { useUserContext } from "../../UserContext";
+import { supabase } from "../../utils/setupSupabase";
 
 interface HeaderProps { heroProps?: Tables<'recipes'> | null; }
 
 const Header:React.FC<HeaderProps> = ({heroProps}) => {
+    const {user, setUser} = useUserContext();
+
+    const handleLogout = async() => {
+        await supabase.auth.signOut();
+        setUser(null);
+    }
+
     return ( 
         <>
         <header className="bg-yellow-300 pt-4">
@@ -19,8 +28,14 @@ const Header:React.FC<HeaderProps> = ({heroProps}) => {
                     <Link to={'/aboutUs'}>Über uns</Link>
                 </div>
                 <div className="flex gap-4 pl-16">
+                    {user? (
+                        <button onClick={handleLogout}>Logout</button>
+                    ) : (
+                        <>
                     <Link to={'/signup'}>Registrieren</Link>
-                    <Link to={'/login'}>Anmelden</Link>
+                    <Link to={'/login'}>Login</Link>
+                        </>
+                    )}
                 </div>
                 </nav>
             </div>   
