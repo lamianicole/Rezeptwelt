@@ -6,6 +6,7 @@ import { supabase } from "../../utils/setupSupabase";
         email: string;
         first_name: string;
         last_name: string;
+        user_name: string;
         created_at: string;
         updated_at: string;
         last_sign_in_at: string;
@@ -19,35 +20,28 @@ import { supabase } from "../../utils/setupSupabase";
         useEffect(() => {
             const fetchProfile = async () => {
                 setIsLoading(true);
-                const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-                if (userError || !user) {
-                    console.error(userError || 'Es wurde kein User gefunden');
-                    setIsLoading(false);
-                    return;
-                }
-
+                const { data: {session}, error } = await supabase.auth.getSession()
+                console.log(session, error);
+                if (session) {
                 const { data: profileData, error: profileError } = await supabase
                 .from('profiles')
                 .select('*')
-                .eq('id', user.id)
+                .eq('id', session.user.id)
                 .single();
-
-                if (profileError) {
-                    console.error(profileError);
-                    setIsLoading(false);
-                    return;
-                }
+                console.log(profileData, profileError);
 
                 setProfile({
-                    email: user.email ?? '', // Fallback auf einen leeren String, falls undefined
-                    created_at: user.created_at ?? '', // Fallback auf einen leeren String, falls undefined
-                    last_sign_in_at: user.last_sign_in_at ?? '', // Fallback auf einen leeren String, falls undefined
-                    updated_at: profileData.updated_at ?? '', // Fallback auf einen leeren String, falls undefined
-                    first_name: profileData.first_name ?? '', // Fallback auf einen leeren String, falls undefined
-                    last_name: profileData.last_name ?? '', 
+                    email: session.user.email ?? '',
+                    created_at: session.user.created_at ?? '', 
+                    last_sign_in_at: session.user.last_sign_in_at ?? '', 
+                    updated_at: session.user.updated_at ?? '', 
+                    first_name: profileData?.first_name ?? '', 
+                    last_name: profileData?.last_name ?? '', 
+                    user_name: profileData?.user_name ?? '',
                 });
                 setIsLoading(false);
+            }
             };
         fetchProfile();
         }, []);
@@ -73,6 +67,7 @@ import { supabase } from "../../utils/setupSupabase";
             <div className="max-w-md mx-auto mt-8 p-4 bg-gray-100 border border-gray-300 rounded-lg">
                 <h2 className="text-2xl font-bold text-gray-900">Dein Profil</h2>
                 <p>E-Mail: {profile?.email}</p>
+                <p>Username: {profile?.user_name}</p>
                 <p className="mt-1 text-gray-800">Vorname: {profile?.first_name}</p>
                 <p className="mt-1 text-gray-800">Nachname: {profile?.last_name}</p>
             <div className="mt-4 text-gray-700">
