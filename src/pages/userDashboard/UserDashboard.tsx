@@ -20,26 +20,36 @@ import { supabase } from "../../utils/setupSupabase";
         useEffect(() => {
             const fetchProfile = async () => {
                 setIsLoading(true);
-
+                // erster fetch session für Daten Profile (auth.user bzw. user table)
+// getSession holt Daten vom Supabase-Server.
+// const { data: { session }, error } entpackt (oder nimmt auseinander) die Antwort von getSession.
+// session enthält die Sitzungsdaten des Benutzers (wenn vorhanden).
+// error enthält mögliche Fehler, die aufgetreten sind.
+// Das Entpacken bedeutet, dass wir die Teile der Antwort, die wir brauchen (session und error), direkt herausnehmen und benennen, damit wir sie leicht verwenden können. So müssen wir nicht jedes Mal auf die ganze Antwort zugreifen.
                 const { data: {session}, error } = await supabase.auth.getSession()
                 console.log(session, error);
                 if (session) {
+                // zweiter fetch von table profiles
                 const { data: profileData, error: profileError } = await supabase
                 .from('profiles')
-                .select('*')
-                .eq('id', session.user.id)
-                .single();
+                .select('*') // Wählt alle colums
+                .eq('id', session.user.id) // Filtert die Daten, um die column zu finden, deren id mit der id des angemeldeten Benutzers übereinstimmt.
+                .single(); // Gibt nur eine einzelne Zeile zurück (denn die id ist eindeutig).
                 console.log(profileData, profileError);
 
+// setProfile({ ... }): Die Profildaten werden im Zustand (state) profile gespeichert.
+// email: session.user.email ?? '': Die E-Mail des Benutzers wird gesetzt, oder ein leerer String, falls email null oder undefined ist.
                 setProfile({
                     email: session.user.email ?? '',
                     created_at: session.user.created_at ?? '', 
                     last_sign_in_at: session.user.last_sign_in_at ?? '', 
                     updated_at: session.user.updated_at ?? '', 
+// profileData hab ich als Platzhalter aus zweitem fetch
                     first_name: profileData?.first_name ?? '', 
                     last_name: profileData?.last_name ?? '', 
                     user_name: profileData?.user_name ?? '',
                 });
+// setIsLoading(false);: Der Ladezustand wird auf false gesetzt, da die Daten erfolgreich abgerufen wurden.
                 setIsLoading(false);
             }
             };
