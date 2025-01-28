@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import { supabase } from "../../utils/setupSupabase";
 import { Tables } from "../../utils/database";
+import FavoriteIcon from '../../assets/SVG/FavMug';
 
 interface OutletContext { 
     setHeroProps: React.Dispatch<React.SetStateAction<Tables<'recipes'> | null>>; }
@@ -68,21 +69,24 @@ interface OutletContext {
                     <p>Loading...</p>
                   ) : (
                     <>
-                      <section className="pl-10">
-                        <h6 className="text-lg font-semibold pb-2">Zutaten</h6>
-                        <ul className="pl-4 pb-6">
-                          {ingredients?.map((ingredient, index) => (
-                            <li className="list-disc" key={index}>
-                              {ingredient.quantity} {ingredient.unit} {ingredient.name}
-                            </li>
-                          ))}
-                        </ul>
-                        <h6 className="text-lg font-semibold pb-2">Zubereitung</h6>
-                        <p className="pb-4">{recipe?.instructions}</p>
-                        <h6 className="text-lg font-semibold pb-2">
-                          Zusätzliche Informationen
-                        </h6>
-                        <p>Portionen: {recipe?.servings}</p>
+                      <section className="bg-slate-100 rounded-xl shadow-lg overflow-hidden w-3/4 mx-auto p-8 mb-40">
+                      <h6 className="text-lg font-semibold pb-2">Zutaten</h6>
+                      <ul className="pl-4 pb-6">
+                      {ingredients?.map((ingredient, index) => (
+                      <li className="list-disc" key={index}>
+                      {ingredient.quantity} {ingredient.unit} {ingredient.name}
+                      </li>
+                      ))}
+                      </ul>
+                      <h6 className="text-lg font-semibold pb-2">Zubereitung</h6>
+                      <p className="pb-4">{recipe?.instructions}</p>
+                      <h6 className="text-lg font-semibold pb-2">
+                      Zusätzliche Informationen
+                      </h6>
+                      <p>Portionen: {recipe?.servings}</p>
+                      <div className="flex justify-end">
+                      <FavoriteIcon />
+                      </div>
                       </section>
                     </>
                   )}
