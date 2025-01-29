@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import UserCreateRecipe from "../../components/userCreateRecipe/UserCreateRecipe";
 import { supabase } from "../../utils/setupSupabase";
+import UserFavRecipeList from "../../components/userFavRecipeList/UserFavRecipeList";
 
     interface IProfile {
         email: string;
@@ -89,6 +90,7 @@ import { supabase } from "../../utils/setupSupabase";
             </div>
             </div>
         </section>
+            <UserFavRecipeList />
             <UserCreateRecipe />
         </>
     );

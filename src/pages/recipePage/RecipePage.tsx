@@ -4,9 +4,6 @@ import NewRecipeCard from "../../components/newRecipeCard/NewRecipeCard";
 import { Tables } from "../../utils/database";
 import { supabase } from "../../utils/setupSupabase";
 
-/* interface IRecipePageProps{
-    newRecipe: Tables<'recipes'>
-} */
 
 const RecipePage = () => {
 

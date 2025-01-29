@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import { supabase } from "../../utils/setupSupabase";
 import { Tables } from "../../utils/database";
-import FavoriteIcon from '../../assets/SVG/FavMug';
+import FavoriteIcon from '../../assets/SVG/FavoriteIcon';
 
 interface OutletContext { 
     setHeroProps: React.Dispatch<React.SetStateAction<Tables<'recipes'> | null>>; }
@@ -85,7 +85,7 @@ interface OutletContext {
                       </h6>
                       <p>Portionen: {recipe?.servings}</p>
                       <div className="flex justify-end">
-                      <FavoriteIcon />
+                      <FavoriteIcon recipeId={recipe_id!}/>
                       </div>
                       </section>
                     </>
@@ -94,4 +94,4 @@ interface OutletContext {
               );
             };
             
-            export default DetailPage;
+export default DetailPage;
