@@ -33,7 +33,8 @@ const Header:React.FC<HeaderProps> = ({heroProps}) => {
                 <div className="flex gap-4 pl-16">
                     {user? (
                         <>
-                        <Link to={'/dashboard'}>Dashboard</Link>
+                        {/* <Link to={'/dashboard'}>Dashboard</Link> */}
+                        <Link to={'/userdashboard'}>Dashboard</Link>
                         <button onClick={handleLogout}>Logout</button>
                         </>
                     ) : (

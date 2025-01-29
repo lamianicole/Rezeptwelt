@@ -8,7 +8,6 @@ interface IFavRecipeCardProps {
 const FavRecipeCard:React.FC<IFavRecipeCardProps> = ({favRecipe}) => {
     return ( 
             <article className="bg-slate-100 rounded-xl shadow-lg overflow-hidden w-72 mx-auto">
-            {/* ternary operator, wenn img nicht angezeigt wird */}
                 {!favRecipe.image_url || favRecipe.image_url == undefined ? 
                 (<>
                 <p>Image not found</p>
