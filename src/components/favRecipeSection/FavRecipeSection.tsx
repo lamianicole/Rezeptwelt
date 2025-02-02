@@ -36,7 +36,7 @@ const FavRecipeSection = () => {
 
 
     return ( 
-        <section className="text-center mb-14 min-h-screen">
+        <section className="text-center mb-8 min-h-screen">
             <h2 className="headline font-medium text-[2rem] pb-6">Die beliebtesten Rezepte</h2>
             {loading ? (
                 <p>Loading recipes ...</p>

@@ -29,6 +29,7 @@ const SignUp = () => {
     const user: TUser = {   
         email: event.currentTarget.email.value,
         password: event.currentTarget.password.value,
+        // options = keyword: für optionale Einträge
         options: {
             data: {
                 first_name: event.currentTarget.first_name.value,
@@ -44,10 +45,10 @@ const SignUp = () => {
             setMessage("Du bist registriert."); 
             setIsError(false);
 
-            // Navigiere nach 4 Sekunden zum Dashboard
+            // Navigiere nach 3 Sekunden zum Dashboard
             setTimeout(() => {
                 navigate('/userdashboard');
-            }, 4000);
+            }, 3000);
         } else { 
             setMessage("Registrierung fehlgeschlagen."); 
             setIsError(true);
