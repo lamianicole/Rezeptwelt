@@ -26,9 +26,16 @@ Supabase: An open-source backend-as-a-service platform.
 
 ## Preview
 
+Overview: Most Favourite Recipes
 ![screenshot](/public/preview-rezepte.png)
+
+Detail View
 ![screenshot](/public/preview-fav-detail.png)
+
+Login Form
 ![screenshot](/public/preview-login.png)
+
+A User's Collection of Favourite Recipes
 ![screenshot](/public/preview-fav-collection.png)
 
 ## Insights Backend: Supabase Table Structure
